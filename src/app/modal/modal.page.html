@@ -23,13 +23,23 @@
           <ion-input [(ngModel)]="pokemon.name"></ion-input>
         </ion-item>
 
+        <ion-item>
+          <ion-label position="stacked">Pokedex number:</ion-label>
+          <ion-input [(ngModel)]="pokemon.order"></ion-input>
+        </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Type</ion-label>
         <div *ngFor="let i of pokemon.types">
           <ion-textarea [(ngModel)]="i.type.name"></ion-textarea>
        </div>
-        
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Abilities</ion-label>
+        <div *ngFor="let i of pokemon.abilities">
+          <ion-textarea [(ngModel)]="i.ability.name"></ion-textarea>
+       </div>
       </ion-item>
 
 

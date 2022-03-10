@@ -22,6 +22,10 @@ export class InicioPage implements OnInit {
 
   pokemon:Pokemon;
 
+  /**
+   * Metodo para buscar un pokemon que le introducimos en el buscador
+   * @returns 
+   */
   carga(event){
 
     const valor: string = event.detail.value;
@@ -29,7 +33,7 @@ export class InicioPage implements OnInit {
     this.servicio.buscarPokemon(valor).subscribe({
       next: (resp) => {
         console.log("ok");
-        console.log(resp); //devuelve tipo Welcome con un array de Doc[] (docs).
+        console.log(resp); 
 
         this.pokemon = resp;
         this.ver=true;

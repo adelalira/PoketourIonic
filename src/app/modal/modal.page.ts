@@ -20,11 +20,19 @@ export class ModalPage implements OnInit {
     });
   }
  
+  /**
+   * Metodo para borrar un pokemon de la base de datos
+   * @returns 
+   */
   async deletePokemon() {
     await this.dataService.deletePokemon(this.pokemon)
     this.modalCtrl.dismiss();
   }
  
+  /**
+   * Metodo para actualizar los datos de un pokemon en la base de datos
+   * @returns 
+   */
   async updatePokemon() {
     await this.dataService.updatePokemon(this.pokemon);
     const toast = await this.toastCtrl.create({

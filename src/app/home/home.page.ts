@@ -20,54 +20,10 @@ export class HomePage {
     });
   }
  
-  /*
-  async addPokemon() {
-    const alert = await this.alertCtrl.create({
-      header: 'Add pokemon',
-      inputs: [
-        {
-          name: 'name',
-          placeholder: 'Nombre',
-          type: 'text'
-        },
-        {
-          name: 'id',
-          placeholder: 'id',
-          type: 'text'
-        }
-        ,
-        {
-          name: 'types',
-          placeholder: 'types',
-          type: 'text'
-        },
-        {
-          name: 'abilities',
-          placeholder: 'abilities',
-          type: 'text'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel'
-        }, {
-          text: 'Añadir',
-          handler: res => {
-            this.dataService.addPokemon({name: res.name, base_experience:res.base_experience, forms:res.forms, id: res.id, 
-              types: res.types, abilities: res.abilities, is_default:res.is_default, held_items:res.held_items, 
-              game_indices:res.game_indices, height:res.height, location_area_encounters:res.location_area_encounters, 
-              moves:res.moves, order:res.order, past_types:res.past_types, species:res.species, sprites:res.sprites,
-              stats:res.stats, weight:res.weight});
-          }
-          
-        }
-      ]
-    });
- 
-    await alert.present();
-  }*/
- 
+ /**
+   * Metodo para que en los favoritos podamos ver uno en detalle
+   * @returns 
+   */
   async openPokemon(pokemon: Pokemon) {
     const modal = await this.modalCtrl.create({
       component: ModalPage,

@@ -26,16 +26,28 @@ export class PokemonPage implements OnInit {
 
   pokFav:Pokemon[];
   
+  /**
+   * Metodo para añadir un pokemon a favorito
+   * @returns 
+   */
     addFavorito (pokemon:Pokemon){
       this.pokemonService.addFavorito(pokemon);
       this.favorito = true;
     }
 
+    /**
+   * Metodo para borrar un pokemon de favorito
+   * @returns 
+   */
     deleteFavorito(pokemon:Pokemon){
       this.servicio.deletePokemon(pokemon);
       this.favorito = false;
     }
 
+    /**
+   * Metodo para buscar todos los favoritos
+   * @returns 
+   */
     getAllFavoritesPokemons(){
       this.pokemonService.getFavorites()
       .subscribe(data =>{
@@ -46,6 +58,10 @@ export class PokemonPage implements OnInit {
     }
 
 
+    /**
+   * Metodo para buscar un pokemon por su id
+   * @returns 
+   */
     getPokemon(){
       this.servicio.buscaPokemonPorId(this.id)
       .subscribe({
@@ -61,6 +77,10 @@ export class PokemonPage implements OnInit {
     }
 
 
+    /**
+   * Metodo para ver si el pokemon esta ya en favorito o no
+   * @returns 
+   */
     checkFavorite(pokemon : Pokemon){
 
       if(this.pokFav!=undefined){
