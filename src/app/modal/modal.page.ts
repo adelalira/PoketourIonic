@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Note, DataService } from '../services/data.service';
+import { DataService } from '../services/data.service';
 import { ModalController, ToastController } from '@ionic/angular';
 import { Pokemon } from '../interface/pokemon';
  

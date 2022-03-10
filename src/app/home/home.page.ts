@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { DataService, Note } from '../services/data.service';
+import { DataService } from '../services/data.service';
 import { ModalPage } from '../modal/modal.page';
 import { Pokemon } from '../interface/pokemon';
 import { PokemonService } from '../services/pokemon.service';

@@ -14,7 +14,7 @@ export class PokemonPage implements OnInit {
   constructor(private servicio:DataService, private route:ActivatedRoute, private pokemonService:PokemonService) { }
 
   ngOnInit() {
-    this.carga();
+    this.getAllFavoritesPokemons();
   }
 
   id:string = this.route.snapshot.paramMap.get('id');
@@ -23,33 +23,56 @@ export class PokemonPage implements OnInit {
   ver:boolean=false;  
 
   favorito:boolean=false;
+
+  pokFav:Pokemon[];
   
-  carga(){
-    this.servicio.buscaPokemonPorId(this.id).subscribe({
-      next: (resp) => {
-        //console.log("ok");
-        //console.log(resp); //devuelve tipo Welcome con un array de Doc[] (docs).
-
-        this.pokemon = resp;
-        this.ver=true;
-      
-      },
-      error: (e) => {
-        console.log(e);
-        console.log("NO ok");
-      }
-    }
-  )}
-
-
     addFavorito (pokemon:Pokemon){
       this.pokemonService.addFavorito(pokemon);
       this.favorito = true;
     }
 
     deleteFavorito(pokemon:Pokemon){
-      this.pokemonService.deleteFavorito(pokemon);
+      this.servicio.deletePokemon(pokemon);
       this.favorito = false;
+    }
+
+    getAllFavoritesPokemons(){
+      this.pokemonService.getFavorites()
+      .subscribe(data =>{
+        this.pokFav = data; 
+        
+        this.getPokemon(); 
+      })
+    }
+
+
+    getPokemon(){
+      this.servicio.buscaPokemonPorId(this.id)
+      .subscribe({
+        next: data =>{
+          this.checkFavorite(data); 
+          this.pokemon = data;
+          this.ver = true;
+        },
+        error: e =>{
+          console.log("No exist");
+        }
+      })
+    }
+
+
+    checkFavorite(pokemon : Pokemon){
+
+      if(this.pokFav!=undefined){
+  
+        this.pokFav.forEach(element => {     
+          if(element.name == pokemon.name){
+            this.favorito = true;
+          }else{
+            this.favorito = false;
+          }
+        });
+      }
     }
 
 }

@@ -28,4 +28,8 @@ export class PokemonService {
     return collectionData(pokRef, { idField: 'id'}) as Observable<Pokemon[]>;
   }
 
+  getFavorites(): Observable<Pokemon[]>{
+    const pokRef = collection(this.firestore, 'pokemon');
+    return collectionData(pokRef, {idField: 'id'}) as Observable<Pokemon[]>;
+}
 }

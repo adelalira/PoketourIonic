@@ -23,13 +23,9 @@
           <ion-input [(ngModel)]="pokemon.name"></ion-input>
         </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Pokedex number</ion-label>
-        <ion-textarea [(ngModel)]="pokemon.id" ></ion-textarea>
-      </ion-item>
 
       <ion-item>
-        <ion-label position="stacked">Stats</ion-label>
+        <ion-label position="stacked">Type</ion-label>
         <div *ngFor="let i of pokemon.types">
           <ion-textarea [(ngModel)]="i.type.name"></ion-textarea>
        </div>
@@ -42,11 +38,11 @@
 
     </div>
    
-    <ion-button expand="block" color="success" (click)="updateNote()">
+    <ion-button expand="block" color="success" (click)="updatePokemon()">
       <ion-icon name="save" slot="start"></ion-icon>
       Update
     </ion-button>
-    <ion-button expand="block" color="danger" (click)="deleteNote()">
+    <ion-button expand="block" color="danger" (click)="deletePokemon()">
       <ion-icon name="trash" slot="start"></ion-icon>
       Delete
     </ion-button>
