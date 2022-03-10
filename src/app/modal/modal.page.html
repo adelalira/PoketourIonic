@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{pokemon.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Detalles</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+  <ion-content fullscreen="">
+    <div *ngIf="pokemon">
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title style="text-align: center;" [(ngModel)]="pokemon.name"></ion-card-title>
+        </ion-card-header>
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input [(ngModel)]="pokemon.name"></ion-input>
+        </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Pokedex number</ion-label>
+        <ion-textarea [(ngModel)]="pokemon.id" ></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Stats</ion-label>
+        <div *ngFor="let i of pokemon.types">
+          <ion-textarea [(ngModel)]="i.type.name"></ion-textarea>
+       </div>
+        
+      </ion-item>
+
+
+      </ion-card>
+
+
+    </div>
+   
+    <ion-button expand="block" color="success" (click)="updateNote()">
+      <ion-icon name="save" slot="start"></ion-icon>
+      Update
+    </ion-button>
+    <ion-button expand="block" color="danger" (click)="deleteNote()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Delete
+    </ion-button>
+   
+  </ion-content>
+</ion-content>

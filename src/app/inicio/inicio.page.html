@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="danger" class="centrado">
+      POKETOUR
+      <img src="../../assets/icon/mew.gif" class="imagenChar">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title >
+      GOTTA CATCH EM ALL!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+
+<ion-content>
+ 
+  <img src="../../assets/pokemons.jpg" class="imagen">
+
+
+
+    <ion-searchbar  placeholder="Buscar pokemon"
+    animated debounce="700"
+    [value]="searchTerm"
+    (ionChange)="carga($event)"> <img src="../../assets/icon/charmander.gif" class="imagenChar">
+    </ion-searchbar>
+    
+
+    <ion-list *ngIf="ver">
+      <div >
+      <ion-item [routerLink]="['pokemon',pokemon.id]">
+          <ion-label>
+            <h3>{{pokemon.name}}</h3>
+            <p>Pokedex number: {{pokemon.id}}</p>
+          </ion-label>
+
+      </ion-item>
+   
+    
+    </div>
+    </ion-list>
+
+
+    <div class="btn">
+      <ion-button color="danger" routerLink="/home" >See my favorite pokemons</ion-button>
+    </div>
+
+
+</ion-content>

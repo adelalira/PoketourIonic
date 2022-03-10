@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="danger">
+      {{pokemon.name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title >
+      GOTTA CATCH EM ALL!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+
+<ion-content fullscreen="">
+  <div *ngIf="ver">
+    <ion-card>
+     <ion-card-header>
+          <ion-card-title>{{pokemon.name}} 
+          <ion-icon *ngIf="!favorito" name="heart-circle-outline" (click)="addFavorito(pokemon)"></ion-icon>
+          <ion-icon *ngIf="favorito" name="heart-circle" (click)="deleteFavorito(pokemon)"></ion-icon></ion-card-title>
+          
+        </ion-card-header>
+      <ion-card-content>
+       <h2><strong>Pokedex number:</strong> {{pokemon.id}}</h2><br>
+       <h2> <strong> Types:</strong></h2>
+       <div *ngFor="let i of pokemon.types">
+         <h2>{{i.type.name}}</h2>
+       </div><br>
+       <h2><strong>Stats:</strong></h2>
+       <div *ngFor="let i of pokemon.stats">
+         <h2>{{i.stat.name  }}: {{i.base_stat}}</h2>
+      </div><br>
+      <h2><strong>Abilities:</strong></h2>
+      <div *ngFor="let i of pokemon.abilities">
+        <h2>{{i.ability.name}}</h2>
+     </div>
+       
+      </ion-card-content>
+    </ion-card>
+
+    <div class="btn">
+      <ion-button color="danger" routerLink="/home" >See my favorite pokemons</ion-button>
+    </div>
+    
+  </div>
+ 
+  
+
+  
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="danger" class="centrado">
+      POKETOUR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title >
+      GOTTA CATCH EM ALL!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+
+<ion-content>
+ 
+  <img src="../../assets/icon/buizel1.jpg" >
+  <ion-list>
+    <ion-item *ngFor="let i of pokemon" (click)="openPokemon(i)">
+      <ion-label class="texto">
+        {{ i.name }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+ 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addPokemon()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="btn">
+    <ion-button color="danger" routerLink="" >Back</ion-button>
+  </div>
+  
+</ion-content>
