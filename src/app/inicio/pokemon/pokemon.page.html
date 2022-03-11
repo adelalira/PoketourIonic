@@ -24,6 +24,9 @@
           
         </ion-card-header>
       <ion-card-content>
+
+          <img src="{{pokemon.sprites.front_default}}">
+
        <h2><strong>Pokedex number:</strong> {{pokemon.id}}</h2><br>
        <h2> <strong> Types:</strong></h2>
        <div *ngFor="let i of pokemon.types">
@@ -37,6 +40,7 @@
       <div *ngFor="let i of pokemon.abilities">
         <h2>{{i.ability.name}}</h2>
      </div>
+
        
       </ion-card-content>
     </ion-card>

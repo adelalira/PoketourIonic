@@ -18,6 +18,11 @@
         <ion-card-header>
           <ion-card-title style="text-align: center;" [(ngModel)]="pokemon.name"></ion-card-title>
         </ion-card-header>
+
+        <ion-item>
+          <ion-input [(ngModel)]="pokemon.sprites.front_default"></ion-input>
+        </ion-item>
+
         <ion-item>
           <ion-label position="stacked">Name</ion-label>
           <ion-input [(ngModel)]="pokemon.name"></ion-input>
