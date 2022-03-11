@@ -88,7 +88,8 @@ export class PokemonPage implements OnInit {
         this.pokFav.forEach(element => {     
           if(element.name == pokemon.name){
             this.favorito = true;
-          }else{
+          }
+         if(this.favorito==false){
             this.favorito = false;
           }
         });
